@@ -72,6 +72,7 @@ const handleSubmit = (e) => {
         style={{
           position: "absolute",
           left: "20px",
+          top: "50%",
           bottom: "20px", // button at bottom-left corner
           backgroundColor: "#25D366", // WhatsApp green
           color: "white",
