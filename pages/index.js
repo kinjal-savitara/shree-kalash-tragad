@@ -65,7 +65,7 @@ const handleSubmit = (e) => {
       <button
         onClick={() =>
           window.open(
-            "https://wa.me/919227020701?text=Hi, I’m interested in the property tour",
+            "https://wa.me/919227020701?text=Hi, I’m interested in the property tour visited from Aerial.",
             "_blank"
           )
         }
