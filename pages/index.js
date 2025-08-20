@@ -32,6 +32,20 @@ const handleSubmit = (e) => {
 
   window.location.href = `mailto:kinjal@yopmail.com?subject=${subject}&body=${body}`;
 };
+
+   const handleWhatsAppClick = () => {
+    // 1. Open WhatsApp with message
+     window.open(
+            "https://wa.me/919227020701?text=Hi, I’m interested in the property tour visited from Aerial View by savitar Realty.",
+            "_blank"
+          )
+
+    // 2. Trigger PDF download
+    const link = document.createElement("a");
+    link.href = "https://housing-is-01.s3.amazonaws.com/6a32315a/6a513915bb8b26b940ec05e4e2ce102e/original.pdf";  
+    link.download = "Shree-kalash-savitar-realty.pdf";
+    link.click();
+  };
   
   return (
     <div
@@ -63,12 +77,7 @@ const handleSubmit = (e) => {
 
       {/* WhatsApp Button */}
       <button
-        onClick={() =>
-          window.open(
-            "https://wa.me/919227020701?text=Hi, I’m interested in the property tour visited from Aerial.",
-            "_blank"
-          )
-        }
+        onClick={handleWhatsAppClick}
         style={{
           position: "absolute",
           left: "20px",
