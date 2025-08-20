@@ -6,7 +6,8 @@ import  { useState, useEffect }  from "react";
 export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [submitted, setSubmitted] = useState(false);
- const [formVisible, setFormVisible] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
+  const [showImage, setShowImage] = useState(true);
 
    
 
@@ -14,6 +15,12 @@ export default function Home() {
     document.documentElement.style.height = "100%";
     document.body.style.height = "100%";
     document.body.style.margin = "0";
+
+     const timer = setTimeout(() => {
+      setShowImage(false); 
+    }, 3000);
+    return () => clearTimeout(timer);
+     
   }, []);
 
   
@@ -33,19 +40,31 @@ const handleSubmit = (e) => {
   window.location.href = `mailto:kinjal@yopmail.com?subject=${subject}&body=${body}`;
 };
 
-   const handleWhatsAppClick = () => {
+  //  const handleWhatsAppClick = () => {
+  //   // 1. Open WhatsApp with message
+  //    window.open(
+  //           "https://wa.me/919227020701?text=Hi, I’m interested in the property tour visited from Aerial View by savitar Realty.",
+  //           "_blank"
+  //         )
+
+  //   // 2. Trigger PDF download
+  //   const link = document.createElement("a");
+  //   link.href = "https://housing-is-01.s3.amazonaws.com/6a32315a/6a513915bb8b26b940ec05e4e2ce102e/original.pdf";  
+  //   link.download = "Shree-kalash-savitar-realty.pdf";
+  //   link.click();
+  // };
+
+  const handleWhatsAppClick = () => {
     // 1. Open WhatsApp with message
      window.open(
-            "https://wa.me/919227020701?text=Hi, I’m interested in the property tour visited from Aerial View by savitar Realty.",
+            "https://wa.me/919227020701?text=Hi, I’m interested in the property tour visited from Aerial View.",
             "_blank"
           )
 
     // 2. Trigger PDF download
-    const link = document.createElement("a");
-    link.href = "https://housing-is-01.s3.amazonaws.com/6a32315a/6a513915bb8b26b940ec05e4e2ce102e/original.pdf";  
-    link.download = "Shree-kalash-savitar-realty.pdf";
-    link.click();
+   window.open("https://housing-is-01.s3.amazonaws.com/6a32315a/6a513915bb8b26b940ec05e4e2ce102e/original.pdf", "_blank");
   };
+  
   
   return (
     <div
@@ -95,6 +114,42 @@ const handleSubmit = (e) => {
       >
         📄  Download Brochure
       </button>
+
+
+          {showImage && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "#000",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 10000,
+          }}
+        >
+          <div
+            style={{
+              width: "120px",
+              height: "120px",
+              borderRadius: "50%",
+              background: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/320px-The_Earth_seen_from_Apollo_17.jpg')",
+              backgroundSize: "cover",
+              animation: "spin 6s linear infinite",
+              boxShadow: "0 0 30px rgba(0,255,255,0.6)",
+            }}
+          ></div>
+        </div>
+      )}
+      
+      {/* CSS Animation */}
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
+        
     </div>
 
 
