@@ -103,7 +103,7 @@ const handleSubmit = (e) => {
           top: "80%", 
           backgroundColor: "#25D366", // WhatsApp green
           color: "white",
-          padding: "12px 18px",
+          padding: "10px 8px",
           borderRadius: "8px",
           boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
           border: "none",
