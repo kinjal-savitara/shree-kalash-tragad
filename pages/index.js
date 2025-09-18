@@ -91,7 +91,7 @@ const handleSubmit = (e) => {
           display: "block",
         }}
         allow="vr;xr-spatial-tracking;gyroscope;accelerometer;magnetometer;"
-        title="Virtual Tour"
+        title="Shree Kalash Tragad"
       ></iframe>
 
       {/* WhatsApp Button */}
